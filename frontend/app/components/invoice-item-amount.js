@@ -12,12 +12,14 @@ export default Ember.Component.extend({
   },
   actions: {
     changeAmount(amount){
+      console.log(`changeAmount ${amount}`);
       let changeAmountAction = this.get('changeAmountAction');
       let sanitizedAmount = this.sanitizeAmount(amount)
       changeAmountAction(sanitizedAmount);
       this.rerender();
     },
     rollback(){
+      console.log(`rollback`);
       this.set('currentAmount', this.get('amount'));
       this.rerender();
     }
